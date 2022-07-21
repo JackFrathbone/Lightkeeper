@@ -110,4 +110,13 @@ public class BoatController : MonoBehaviour
     
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Danger")
+        {
+            boatSpawner.RemoveBoat();
+            Destroy(gameObject);
+        }
+    }
 }
