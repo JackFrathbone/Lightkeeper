@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7484481056609338803}
   m_Layer: 0
   m_Name: Tentacle01
-  m_TagString: Danger
+  m_TagString: Tentacle1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

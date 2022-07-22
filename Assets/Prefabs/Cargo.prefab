@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7871234881016438717}
   - component: {fileID: 921010680047940527}
+  - component: {fileID: -7826858459193818420}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -130,3 +131,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 35
   m_Center: {x: 0, y: 15, z: 0}
+--- !u!114 &-7826858459193818420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871234881016438719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a2f669e4fa75f43ba33aa52c4ab309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

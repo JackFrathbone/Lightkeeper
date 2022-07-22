@@ -11,6 +11,7 @@ public class BoatSpawner : MonoBehaviour
     [SerializeField] List<GameObject> _boatPrefabs = new List<GameObject>();
     [SerializeField] List<GameObject> _Routes = new List<GameObject>();
 
+
     private float _timer;
     private float _timerTarget;
 
@@ -33,7 +34,7 @@ public class BoatSpawner : MonoBehaviour
     private void SetTimerTarget()
     {
         _timer = 0;
-        _timerTarget = Random.Range(10f, 30f);
+        _timerTarget = Random.Range(5f, 10f);
     }
 
     private void SpawnBoat()

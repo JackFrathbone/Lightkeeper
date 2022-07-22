@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle02
       objectReference: {fileID: 0}
+    - target: {fileID: 7871234881016438719, guid: a97c3cff024e0a24fbbdc1e2103ae423, type: 3}
+      propertyPath: m_TagString
+      value: Tentacle2
+      objectReference: {fileID: 0}
     - target: {fileID: 8652289623830090517, guid: a97c3cff024e0a24fbbdc1e2103ae423, type: 3}
       propertyPath: m_Sprite
       value: 

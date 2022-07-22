@@ -9,6 +9,8 @@ TagManager:
   - Beam
   - Sea
   - Danger
+  - Tentacle1
+  - Tentacle2
   layers:
   - Default
   - TransparentFX

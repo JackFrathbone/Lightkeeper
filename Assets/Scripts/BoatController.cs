@@ -11,6 +11,8 @@ public class BoatController : MonoBehaviour
     private Rigidbody _boatRB;
     private SpriteRenderer _spriteRenderer;
 
+    private ChecklistManager _checklistManager;
+
     [Header("Settings")]
     [SerializeField] float _speed;
     [SerializeField] float _maxVelocity;
@@ -20,6 +22,7 @@ public class BoatController : MonoBehaviour
 
     private void Start()
     {
+        _checklistManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ChecklistManager>();
         _boatRB = GetComponent<Rigidbody>();
     }
 
@@ -29,7 +32,7 @@ public class BoatController : MonoBehaviour
 
         int randomBool = Random.Range(0, 2);
 
-        if(randomBool == 0)
+        if (randomBool == 0)
         {
             _startWest = true;
         }
@@ -40,7 +43,7 @@ public class BoatController : MonoBehaviour
             _spriteRenderer.flipX = true;
         }
 
-        foreach(Transform child in route.transform)
+        foreach (Transform child in route.transform)
         {
             _travelPoints.Add(child);
         }
@@ -74,7 +77,7 @@ public class BoatController : MonoBehaviour
             _setDirection = true;
         }
 
-        else if(_moving && _setDirection)
+        else if (_moving && _setDirection)
         {
             if (_startWest)
             {
@@ -110,15 +113,37 @@ public class BoatController : MonoBehaviour
                     }
                 }
             }
-    
+
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Danger")
+        if (collision.gameObject.tag == "Danger")
         {
             boatSpawner.RemoveBoat();
+            _checklistManager.CrashedShip();
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Boat")
+        {
+            boatSpawner.RemoveBoat();
+            _checklistManager.CrashedShip();
+            _checklistManager.BoatCollision();
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Tentacle1")
+        {
+            boatSpawner.RemoveBoat();
+            _checklistManager.CrashedShip();
+            _checklistManager.TouchTentacle(1);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Tentacle2")
+        {
+            boatSpawner.RemoveBoat();
+            _checklistManager.CrashedShip();
+            _checklistManager.TouchTentacle(2);
             Destroy(gameObject);
         }
     }
