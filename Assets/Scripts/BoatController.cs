@@ -9,6 +9,7 @@ public class BoatController : MonoBehaviour
     private BoatSpawner boatSpawner;
 
     private Rigidbody _boatRB;
+    private SpriteRenderer _spriteRenderer;
 
     [Header("Settings")]
     [SerializeField] float _speed;
@@ -35,6 +36,8 @@ public class BoatController : MonoBehaviour
         else
         {
             _startWest = false;
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _spriteRenderer.flipX = true;
         }
 
         foreach(Transform child in route.transform)

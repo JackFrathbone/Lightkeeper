@@ -8,7 +8,7 @@ public class BoatSpawner : MonoBehaviour
     private int _boatsSpawned;
 
     [Header("References")]
-    [SerializeField] GameObject _boatPrefab;
+    [SerializeField] List<GameObject> _boatPrefabs = new List<GameObject>();
     [SerializeField] List<GameObject> _Routes = new List<GameObject>();
 
     private float _timer;
@@ -40,7 +40,7 @@ public class BoatSpawner : MonoBehaviour
     {
         if(_boatsSpawned < _maxBoatsSpawned)
         {
-            BoatController boatController = Instantiate(_boatPrefab, transform.position, Quaternion.identity, transform).GetComponent<BoatController>();
+            BoatController boatController = Instantiate(_boatPrefabs[Random.Range(0,_boatPrefabs.Count)], transform.position, Quaternion.identity, transform).GetComponent<BoatController>();
             boatController.SetRoute(_Routes[Random.Range(0, _Routes.Count)], this);
             _boatsSpawned++;
         }
