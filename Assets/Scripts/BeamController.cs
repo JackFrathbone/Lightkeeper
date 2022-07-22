@@ -19,7 +19,7 @@ public class BeamController : MonoBehaviour
     {
         if (_mouseDown)
         {
-            var pos = Camera.main.WorldToScreenPoint(_beam.gameObject.transform.position);
+            var pos = _cam.WorldToScreenPoint(_beam.gameObject.transform.position);
             var dir = (Input.mousePosition - pos);
             var angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90;
             _beam.gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

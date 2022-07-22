@@ -10,6 +10,7 @@ public class BoatController : MonoBehaviour
 
     private Rigidbody _boatRB;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private ChecklistManager _checklistManager;
 
@@ -22,6 +23,7 @@ public class BoatController : MonoBehaviour
 
     private void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
         _checklistManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ChecklistManager>();
         _boatRB = GetComponent<Rigidbody>();
     }
@@ -123,28 +125,32 @@ public class BoatController : MonoBehaviour
         {
             boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
-            Destroy(gameObject);
+            _animator.SetTrigger("sink");
+            Destroy(gameObject, 1f);
         }
         else if (collision.gameObject.tag == "Boat")
         {
             boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.BoatCollision();
-            Destroy(gameObject);
+            _animator.SetTrigger("sink");
+            Destroy(gameObject, 1f);
         }
         else if (collision.gameObject.tag == "Tentacle1")
         {
             boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.TouchTentacle(1);
-            Destroy(gameObject);
+            _animator.SetTrigger("sink");
+            Destroy(gameObject, 1f);
         }
         else if (collision.gameObject.tag == "Tentacle2")
         {
             boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.TouchTentacle(2);
-            Destroy(gameObject);
+            _animator.SetTrigger("sink");
+            Destroy(gameObject, 1f);
         }
     }
 }

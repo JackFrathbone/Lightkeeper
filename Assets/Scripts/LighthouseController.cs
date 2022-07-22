@@ -12,14 +12,17 @@ public class LighthouseController : MonoBehaviour
     private void Start()
     {
         _light = GetComponentInChildren<Light>();
-        ToggleLighthouse(false);
+        ToggleLighthouse(true);
     }
 
     private void FixedUpdate()
     {
         if(_targetBoat != null && _active)
         {
-            _targetBoat.AddExplosionForce(25f, transform.position, 100f, 0f ,ForceMode.Acceleration);
+            Vector3 dir = (transform.position - _targetBoat.transform.position).normalized;
+            dir = new Vector3(0f, 0f, dir.z);
+            _targetBoat.AddForce(-dir * 5f, ForceMode.Force);
+            //_targetBoat.AddExplosionForce(25f, transform.position, 100f, 0f ,ForceMode.Acceleration);
         }
     }
 

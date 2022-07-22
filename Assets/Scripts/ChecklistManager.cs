@@ -15,6 +15,7 @@ public class ChecklistManager : MonoBehaviour
     private int _boatCollisions = 0;
     private bool _tentacle1Touched = false;
     private bool _tentacle2Touched = false;
+    private int _yachtsDestroyed = 0;
     private int _shipsDestroyed = 0;
 
     [Header("References")]
@@ -25,14 +26,30 @@ public class ChecklistManager : MonoBehaviour
     [SerializeField] GameObject _strike5;
     [SerializeField] GameObject _strike6;
 
+    [SerializeField] Dialogue _dialogue1;
+    [SerializeField] Dialogue _dialogue2;
+    [SerializeField] Dialogue _dialogue3;
+    [SerializeField] Dialogue _dialogue4;
+    [SerializeField] Dialogue _dialogue5;
+    [SerializeField] Dialogue _dialogue6;
+    [SerializeField] Dialogue _dialogueEnd;
+
+    [SerializeField] DialogueManager _dialogueManager;
 
     public void BoatCollision()
     {
         _boatCollisions++;
 
-        if (_boatCollisions >= 2)
+        if (_boatCollisions >= 4 && !_list1)
         {
             _list1 = true;
+
+            if (CheckFinish())
+            {
+                return;
+            }
+
+            _dialogueManager.RunDialogue(_dialogue1);
             _strike1.SetActive(true);
         }
     }
@@ -48,9 +65,16 @@ public class ChecklistManager : MonoBehaviour
             _tentacle2Touched = true;
         }
 
-        if(_tentacle1Touched && _tentacle2Touched)
+        if (_tentacle1Touched && _tentacle2Touched && !_list2)
         {
             _list2 = true;
+
+            if (CheckFinish())
+            {
+                return;
+            }
+
+            _dialogueManager.RunDialogue(_dialogue2);
             _strike2.SetActive(true);
         }
     }
@@ -58,27 +82,66 @@ public class ChecklistManager : MonoBehaviour
     {
         _cargoCollected++;
 
-        if (_cargoCollected >= 5)
+        if (_cargoCollected >= 5 && !_list3)
         {
             _list3 = true;
+
+            if (CheckFinish())
+            {
+                return;
+            }
+
+            _dialogueManager.RunDialogue(_dialogue3);
             _strike3.SetActive(true);
         }
     }
 
     public void CrashYacht()
     {
-        _list4 = true;
-        _strike4.SetActive(true);
+        _yachtsDestroyed++;
+
+        if (_yachtsDestroyed >= 3 && !_list4)
+        {
+            _list4 = true;
+
+            if (CheckFinish())
+            {
+                return;
+            }
+
+            _dialogueManager.RunDialogue(_dialogue4);
+            _strike4.SetActive(true);
+        }
     }
 
     public void CrashedShip()
     {
         _shipsDestroyed++;
 
-        if (_shipsDestroyed >= 10)
+        if (_shipsDestroyed >= 10 && !_list6)
         {
             _list6 = true;
+
+            if (CheckFinish())
+            {
+                return;
+            }
+
+            _dialogueManager.RunDialogue(_dialogue6);
             _strike6.SetActive(true);
         }
+    }
+
+
+    private bool CheckFinish()
+    {
+        if (_list1 && _list2 && _list3 && _list4 && _list6)
+        {
+            _dialogueManager.RunDialogue(_dialogueEnd);
+
+            return true;
+        }
+
+        return false;
     }
 }

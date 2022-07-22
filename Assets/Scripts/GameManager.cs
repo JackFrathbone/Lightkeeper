@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Animator _noteAnimator;
 
     [Header("Data")]
-    private bool _showNote;
+    private bool _showNote = false;
 
     public void Pause()
     {
@@ -18,27 +19,36 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void ToggleNotes()
+    public void OpenNotes()
     {
-        _showNote = !_showNote;
-
-        if (_showNote)
-        {
-            _noteAnimator.SetTrigger("PopUp");
-            Pause();
-        }
-        else
-        {
-            _noteAnimator.SetTrigger("PopDown");
-            UnPause();
-        }
+        Pause();
+        _showNote = true;
+        _noteAnimator.SetTrigger("PopUp");
     }
+
+    public void CloseNotes()
+    {
+        UnPause();
+        _showNote = false;
+        _noteAnimator.SetTrigger("PopDown");
+    }
+
+    public void LoadLevel(int i)
+    {
+        SceneManager.LoadScene(i);
+    }
+
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && Time.timeScale == 1)
+        if (Input.GetMouseButtonDown(1) && !_showNote && Time.timeScale == 1)
         {
-            ToggleNotes();
+            OpenNotes();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }

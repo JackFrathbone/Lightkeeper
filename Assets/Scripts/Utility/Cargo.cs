@@ -8,6 +8,7 @@ public class Cargo : MonoBehaviour
     private void Start()
     {
         _checklistManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ChecklistManager>();
+        Destroy(gameObject, 5f);
     }
 
     private void OnMouseDown()
