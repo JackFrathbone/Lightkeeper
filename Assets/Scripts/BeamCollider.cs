@@ -9,7 +9,7 @@ public class BeamCollider : MonoBehaviour
     {
         if (_targetBoat != null)
         {
-            _targetBoat.AddExplosionForce(50f, transform.position, 100f, 0f, ForceMode.Acceleration);
+            _targetBoat.AddExplosionForce(100f, transform.position, 100f, 0f, ForceMode.Acceleration);
         }
     }
 
