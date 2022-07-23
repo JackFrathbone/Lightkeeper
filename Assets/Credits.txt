@@ -1,1 +1,3 @@
+Open Dyslexic Font by Abbie Gonzalez licensed under OFL
+
 Unity-RTS-Camera by PanMig licensed under MIT License

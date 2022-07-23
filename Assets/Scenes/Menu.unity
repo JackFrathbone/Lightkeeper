@@ -1726,8 +1726,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -109.39525}
-  m_SizeDelta: {x: 1250.1942, y: 656.3621}
+  m_AnchoredPosition: {x: 0, y: -41.30354}
+  m_SizeDelta: {x: 1250.1942, y: 520.1788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880066327
 MonoBehaviour:
@@ -1752,8 +1752,12 @@ MonoBehaviour:
   m_text: 'Created by Michaela Bussey, Diyanka Govender, Juliette Love, Jack Rathbone
 
 
-    Unity-RTS-Camera
-    by PanMig licensed under MIT License'
+    Open
+    Dyslexic Font by Abbie Gonzalez licensed under OFL
+
+
+    Unity-RTS-Camera by
+    PanMig licensed under MIT License'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb4e3deb54208644adfc3f85512c06d, type: 2}
   m_sharedMaterial: {fileID: -5443519598634926644, guid: aeb4e3deb54208644adfc3f85512c06d, type: 2}
