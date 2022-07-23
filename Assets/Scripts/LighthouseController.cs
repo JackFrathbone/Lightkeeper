@@ -3,7 +3,9 @@ using UnityEngine;
 public class LighthouseController : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] AudioClip _clickSound;
     private Light _light;
+    private SoundManager _soundManager;
 
     [Header("Settings")]
     private bool _active;
@@ -11,6 +13,7 @@ public class LighthouseController : MonoBehaviour
 
     private void Start()
     {
+        _soundManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundManager>();
         _light = GetComponentInChildren<Light>();
         ToggleLighthouse(true);
     }
@@ -21,7 +24,7 @@ public class LighthouseController : MonoBehaviour
         {
             Vector3 dir = (transform.position - _targetBoat.transform.position).normalized;
             dir = new Vector3(0f, 0f, dir.z);
-            _targetBoat.AddForce(-dir * 5f, ForceMode.Force);
+            _targetBoat.AddForce(-dir * 10f, ForceMode.Force);
             //_targetBoat.AddExplosionForce(25f, transform.position, 100f, 0f ,ForceMode.Acceleration);
         }
     }
@@ -31,10 +34,12 @@ public class LighthouseController : MonoBehaviour
 
         if (_active)
         {
+            _soundManager.PlayClip(_clickSound);
             ToggleLighthouse(false);
         }
         else
         {
+            _soundManager.PlayClip(_clickSound);
             ToggleLighthouse(true);
         }
     }

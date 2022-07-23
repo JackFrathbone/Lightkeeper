@@ -21,6 +21,11 @@ public class BeamCollider : MonoBehaviour
         if (other.tag == "Boat")
         {
             _targetBoat = other.gameObject.GetComponent<Rigidbody>();
+
+            if (_targetBoat.GetComponent<BoatController>() != null)
+            {
+                _targetBoat.GetComponent<BoatController>().EnableExclamation();
+            }
         }
     }
 
@@ -28,6 +33,11 @@ public class BeamCollider : MonoBehaviour
     {
         if (other.tag == "Boat")
         {
+            if (_targetBoat.GetComponent<BoatController>() != null)
+            {
+                _targetBoat.GetComponent<BoatController>().DisableExclamation();
+            }
+
             _targetBoat = null;
         }
     }

@@ -15,5 +15,7 @@ MonoBehaviour:
   sentences:
   - sentence: Right-o that's enough chaos for today, toddle off now!
     faceNum: 6
+  - sentence: Thanks for helping me finish up me list.
+    faceNum: 1
   - sentence: '[PRESS ESC TO QUIT]'
     faceNum: 1

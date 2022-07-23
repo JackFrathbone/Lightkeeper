@@ -13,6 +13,10 @@ public class BoatController : MonoBehaviour
     private Animator _animator;
 
     private ChecklistManager _checklistManager;
+    private SoundManager _soundManager;
+    [SerializeField] AudioClip _sinkClip;
+
+    [SerializeField] GameObject _exclamation;
 
     [Header("Settings")]
     [SerializeField] float _speed;
@@ -25,6 +29,7 @@ public class BoatController : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _checklistManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ChecklistManager>();
+        _soundManager = _checklistManager.GetComponent<SoundManager>();
         _boatRB = GetComponent<Rigidbody>();
     }
 
@@ -123,34 +128,47 @@ public class BoatController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Danger")
         {
-            boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _animator.SetTrigger("sink");
-            Destroy(gameObject, 1f);
+            DestroyBoat();
         }
         else if (collision.gameObject.tag == "Boat")
         {
-            boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.BoatCollision();
-            _animator.SetTrigger("sink");
-            Destroy(gameObject, 1f);
+            DestroyBoat();
         }
         else if (collision.gameObject.tag == "Tentacle1")
         {
-            boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.TouchTentacle(1);
-            _animator.SetTrigger("sink");
-            Destroy(gameObject, 1f);
+            DestroyBoat();
+
+
         }
         else if (collision.gameObject.tag == "Tentacle2")
         {
-            boatSpawner.RemoveBoat();
             _checklistManager.CrashedShip();
             _checklistManager.TouchTentacle(2);
-            _animator.SetTrigger("sink");
-            Destroy(gameObject, 1f);
+            DestroyBoat();
         }
+    }
+
+    private void DestroyBoat()
+    {
+        _soundManager.PlayClip(_sinkClip);
+        boatSpawner.RemoveBoat();
+        _animator.SetTrigger("sink");
+        Destroy(gameObject, 1f);
+    }
+
+    public void EnableExclamation()
+    {
+        _exclamation.SetActive(true);
+    }
+
+    public void DisableExclamation()
+    {
+        _exclamation.SetActive(false);
     }
 }

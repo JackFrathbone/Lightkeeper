@@ -5,9 +5,19 @@ public class GameManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Animator _noteAnimator;
+    [SerializeField] AudioClip _sceneMusic;
+    [SerializeField] GameObject _pauseMenu;
+
+    private SoundManager _soundManager;
 
     [Header("Data")]
     private bool _showNote = false;
+
+    private void Start()
+    {
+        _soundManager = GetComponent<SoundManager>();
+        _soundManager.SetMusic(_sceneMusic);
+    }
 
     public void Pause()
     {
@@ -38,6 +48,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(i);
     }
 
+    public void OpenPauseMenu()
+    {
+        _pauseMenu.SetActive(true);
+        Pause();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     private void Update()
     {
@@ -46,9 +66,9 @@ public class GameManager : MonoBehaviour
             OpenNotes();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
-            Application.Quit();
+            OpenPauseMenu();
         }
     }
 }

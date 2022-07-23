@@ -15,3 +15,5 @@ MonoBehaviour:
   sentences:
   - sentence: "Oi, oi, looks like a NEW HIGH SCORE!\r"
     faceNum: 4
+  - sentence: 10 ships sank, oh and how much fun that 'twas.
+    faceNum: 6

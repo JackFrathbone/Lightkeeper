@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Task2
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: "Hello Bessie, my pretty. Hope you enjoyed your boat today. I chose
+  - sentence: I love feeding me lovely krakens. They have been such good gals.
+    faceNum: 6
+  - sentence: "Hello Bessie, me pretty. Hope you enjoyed your boat today. I chose
       it especially for you.\r"
     faceNum: 3
   - sentence: "Absinth, I haven\u2019t seen you in ages!\r\nWhere the hell have you

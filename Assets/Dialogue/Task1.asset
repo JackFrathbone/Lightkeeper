@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Task1
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: "Mwhahahaha, there we go. Nothing like a good sinking to get the day
-      going. Almost as good as a shot of whiskey\u2026"
+  - sentence: Mwhahahaha, there we go. Nothing like a good sinking to cheer up this
+      ol' ghost.
     faceNum: 6
+  - sentence: Warms me dead heart up like a shot of whiskey.
+    faceNum: 3

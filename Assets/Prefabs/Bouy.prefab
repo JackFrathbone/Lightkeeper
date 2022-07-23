@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fff767079e89d641a9ac775885f746c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clickSound: {fileID: 8300000, guid: 220bad5206612ce4da6ce5003383ce52, type: 3}
 --- !u!135 &3369847779188201145
 SphereCollider:
   m_ObjectHideFlags: 0

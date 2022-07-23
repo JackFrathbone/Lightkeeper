@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Intro
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: "Dammit, where is my whiskey? Ah there it is.\r"
+  - sentence: Dammit, where's my grog? Ah there it is!
     faceNum: 0
-  - sentence: Nothing better than a good bit of revenge to start the day.
+  - sentence: Nothing better than a good spot o' revenge to start the day.
     faceNum: 2
-  - sentence: "That\u2019ll teach those filthy bastards to steal my job."
+  - sentence: I'll make sure they never forget me!
     faceNum: 6
+  - sentence: Ol' Theodore Riddle, the ghost lightkeeper...
+    faceNum: 0
+  - sentence: '[Press ESCAPE to see the controls]'
+    faceNum: 0

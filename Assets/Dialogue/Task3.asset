@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - sentence: I hate pirates! But I do love their booze...
-    faceNum: 3
+    faceNum: 2
+  - sentence: Oh and their booty too, harharha!
+    faceNum: 6
